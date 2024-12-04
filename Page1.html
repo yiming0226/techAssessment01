@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Loyalty Points</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #585858;
+        }
+        .container {
+            width: 100%;
+            max-width: 640px;
+            height: 600px;
+            margin: 50px;
+            padding: 20px;
+            background-color: #fff;
+            text-align: start;
+        }
+        h1 {
+            font-size: 60px;
+        }
+        .container p {
+            color: #ff9100;
+        }
+        input[type="text"], button {
+            width: 70%;
+            padding: 10px;
+            margin: 60px 0 0 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #ff6600;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 30px;
+        }
+        button:hover {
+            background-color: #e55a00;
+        }
+        footer {
+            text-align: center;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="Mulah.png" alt="logo" width="166" height="44">
+
+    <div class="container">
+        <h1>Hello,<br>Welcome !</h1>
+        <p>Check Your Loyalty Points & Rewards</p>
+        <input type="text" id="phone" placeholder="+60 Enter your mobile number" />
+        <button onclick="checkLoyaltyPoints()">Check Loyalty Points</button>
+    </div>
+    
+    <footer>
+        <div class="footer">
+            <hr>
+            <p>Powered by <span style="color: rgb(35, 82, 234)">MulahRewards.com</span></p>
+        </div>
+    </footer>
+
+    <script>
+        function checkLoyaltyPoints() {
+            var phone = document.getElementById("phone").value;
+
+            if (phone === "+60173527250") {
+                sessionStorage.setItem("phone", phone); 
+                window.location.href = "Page2.html"; 
+            } else {
+                alert("Invalid phone number.");
+            }
+        }
+    </script>
+
+</body>
+</html>

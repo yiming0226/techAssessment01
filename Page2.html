@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #585858;
+        }
+        .container {
+            width: 100%;
+            max-width: 640px;
+            height: 600px;
+            margin: 50px;
+            background-color: #fff;
+            text-align: start;
+        }
+        .birthday-inputs {
+            width: 50%;
+            display: flex;
+            gap: 20px;
+        }
+        img {
+            margin: 30px 0;
+        }
+        h1 {
+            font-size: 40px;
+        }
+        input, button {
+            width: 70%;
+            padding: 10px;
+            margin: 10px 0 0 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #ff6600;
+            color: #fff;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 30px;
+        }
+        button:hover {
+            background-color: #e55a00;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+            width: 80%;
+            margin: 10px 0 30px 0;
+            font-style: italic;
+        }
+        footer {
+            text-align: center;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="Mulah.png" alt="logo" width="111" height="30">
+
+    <div class="container">
+        <h1>Registration</h1>
+        <p>Please fill up your details.</p>
+
+        <label>Name</label><br>
+        <input type="text" id="name" placeholder="Enter Name" />
+        <div class="error" id="nameError">*Please insert a name.</div>
+
+        <label>Birthday</label><br>
+        <div class="birthday-inputs">
+            <input type="number" id="day" placeholder="DD" min="1" max="31" />
+            <input type="number" id="month" placeholder="MM" min="1" max="12" />
+            <input type="number" id="year" placeholder="YYYY" min="1900" max="2100" />
+        </div>
+        <div class="error" id="birthdayError">*Please insert a valid birthday.</div>
+
+        <label>Email</label><br>
+        <input type="email" id="email" placeholder="Email Address" />
+        <div class="error" id="emailError">*Please insert a valid email address.</div>
+
+        <button onclick="register()">Continue</button>
+    </div>
+    
+    <footer>
+        <div class="footer">
+            <hr>
+            <p>Powered by <span style="color: rgb(35, 82, 234)">MulahRewards.com</span></p>
+        </div>
+    </footer>
+
+    <script>
+        function register() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var phone = sessionStorage.getItem("phone"); 
+            var day = document.getElementById("day").value;
+            var month = document.getElementById("month").value;
+            var year = document.getElementById("year").value;
+
+            if (!name || !email || !day || !month || !year) {
+                alert("Please fill in all the fields.");
+                return;
+            }
+
+            sessionStorage.setItem("name", name);
+            sessionStorage.setItem("email", email);
+            sessionStorage.setItem("birthday", `${day}-${month}-${year}`);
+
+            window.location.href = "Page3.html";
+        }
+    </script>
+
+</body>
+</html>

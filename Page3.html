@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=640, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Registration Summary</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            color: #585858;
+        }
+        .container {
+            width: 100%;
+            max-width: 640px;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2rem;
+        }
+        .summary-item {
+            width: 80%;
+            max-width: 400px;
+            padding: 10px;
+            margin-bottom: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1.2rem;
+        }
+        .summary-item span {
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="Mulah.png" alt="logo" width="111" height="30">
+
+        <h1>Registration Summary</h1>
+        
+        <div class="summary-item">
+            <span>Name:</span> <span id="displayName"></span>
+        </div>
+        
+        <div class="summary-item">
+            <span>Email:</span> <span id="displayEmail"></span>
+        </div>
+
+        <div class="summary-item">
+            <span>Phone Number:</span> <span id="displayPhone"></span>
+        </div>
+
+        <div class="summary-item">
+            <span>Birthday:</span> <span id="displayBirthday"></span>
+        </div>
+
+    </div>
+
+    <script>
+        var phone = sessionStorage.getItem("phone");
+        var name = sessionStorage.getItem("name");
+        var email = sessionStorage.getItem("email");
+        var birthday = sessionStorage.getItem("birthday");
+
+        if (!phone || !name || !email || !birthday) {
+            console.log("Data is missing, redirecting to Page 1");
+
+            window.location.href = "Page1.html"; 
+        } else {
+            document.getElementById("displayPhone").textContent = phone;
+            document.getElementById("displayName").textContent = name;
+            document.getElementById("displayEmail").textContent = email;
+            document.getElementById("displayBirthday").textContent = birthday;
+        }
+    </script>
+
+</body>
+</html>
